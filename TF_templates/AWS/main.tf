@@ -24,7 +24,7 @@ terraform {
 # Data source to retrieve AWS credentials from Vault
 #
 # data "vault_generic_secret" "aws_creds" {
-#   path = "secret/data/aws/credentials"
+#   path = "secret/data/aws_creds"
 #   namespace = "admin"
 # }
 
@@ -44,7 +44,8 @@ provider "aws" {
 # Provider configuration for Vault using AppRole authentication
 provider "vault" {
   address           = var.vault_addr
-  token             = var.vault_token
+  role_id           = var.vault_role_id
+  secret_id         = var.vault_secret_id
   skip_child_token  = true
 
 # Alternative: Use AppRole authentication (commented out for now)
@@ -61,7 +62,7 @@ provider "vault" {
 # Data source to retrieve AAP credentials from Vault
 #
 # data "vault_generic_secret" "aap_creds" {
-#   path = "secret/data/aap/credentials"
+#   path = "secret/data/aap_creds"
 #   namespace = "admin"
 # }
 

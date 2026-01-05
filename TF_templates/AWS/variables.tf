@@ -66,25 +66,23 @@ variable "vault_addr" {
   # Set via TF_VAR_vault_addr or in terraform.tfvars
 }
 
-variable "vault_token" {
-  description = "Vault authentication token"
+# variable "vault_token" {
+#   description = "Vault authentication token"
+#   type        = string
+#   sensitive   = true
+# }
+
+variable "vault_role_id" {
+  description = "Vault AppRole Role ID for Terraform"
   type        = string
   sensitive   = true
 }
 
-# variable "vault_role_id" {
-#   description = "Vault AppRole Role ID for Terraform"
-#   type        = string
-#   sensitive   = true
-#   # Set via TF_VAR_vault_role_id or in terraform.tfvars
-# }
-
-# variable "vault_secret_id" {
-#   description = "Vault AppRole Secret ID for Terraform"
-#   type        = string
-#   sensitive   = true
-#   # Set via TF_VAR_vault_secret_id or in terraform.tfvars
-# }
+variable "vault_secret_id" {
+  description = "Vault AppRole Secret ID for Terraform"
+  type        = string
+  sensitive   = true
+}
 
 # Ansible Automation Platform Configuration
 variable "aap_host" {
